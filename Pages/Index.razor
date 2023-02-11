@@ -1,0 +1,48 @@
+﻿@page "/"
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<MudForm @ref="Form" Style="position: relative;">
+    <MudCard Style="max-width: 475px; min-width: 325px;" Class="rounded-lg">
+        <MudCardHeader>
+            <CardHeaderContent>
+                <MudText Typo="Typo.h6">SIGN-STREAM Installers</MudText>
+                <MudText Typo="Typo.body2">Enter your credentials below</MudText>
+            </CardHeaderContent>
+            <CardHeaderActions>
+            </CardHeaderActions>
+        </MudCardHeader>
+        <MudCardContent>
+            <MudGrid Spacing="1">
+                <MudItem xs="12">
+                    <MudTextField @bind-Value="Username" Label="Username" Required="true" Variant="Variant.Outlined" Margin="Margin.Dense">mconstantine</MudTextField>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudTextField @bind-Value="Password" Label="Password" Required="true" InputType="InputType.Password" Variant="Variant.Outlined" Margin="Margin.Dense">12345</MudTextField>
+                    <div class="text-end">
+                        <MudButton Variant="Variant.Text" Size="Size.Small">Forgot Password?</MudButton>
+                    </div>
+                </MudItem>
+            </MudGrid>
+        </MudCardContent>
+        <MudCardActions Style="justify-content: end;">
+            <MudButton Variant="Variant.Filled" Color="Color.Primary">Login</MudButton>
+        </MudCardActions>
+        <MudCardContent>
+            <div class="text-center"><MudText Typo="Typo.caption">© @DateTime.Now.Year - SIGN-STREAM, SIGN-STREAM Logo, MOBILE-STREAM, MOBILE-STREAM Logo, and all its parts are registered trademarks of Code-Stream Technologies Inc.</MudText></div>
+        </MudCardContent>
+    </MudCard>
+    <MudOverlay Visible="IsVisible" DarkBackground="true" Absolute="true">
+        <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+    </MudOverlay>
+</MudForm>
+
+@code {
+MudForm Form;
+    string Username = "";
+    string Password = "";
+    bool IsVisible;
+}
+
